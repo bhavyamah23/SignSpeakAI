@@ -5,28 +5,30 @@
 <h1 align="center">🤖 SignSpeak AI</h1>
 
 <p align="center">
-<b>See It • Understand It • Speak It</b>
+<b>See It • Understand It • Recognize It</b>
 </p>
 
 ---
 
 # 📌 Project Overview
 
-SignSpeak AI is an Artificial Intelligence based Hand Gesture Recognition System that detects hand gestures in real time and converts them into spoken words using Machine Learning.
+SignSpeak AI is an Artificial Intelligence based Hand Gesture Recognition System that detects and recognizes hand gestures in real time using Machine Learning.
 
-The project is developed using Python, OpenCV, MediaPipe and Scikit-Learn.
+The project is developed using Python, OpenCV, MediaPipe, and Scikit-Learn to provide fast and accurate gesture recognition with a professional user interface.
 
 ---
 
 # ✨ Features
 
-- ✋ Real-Time Hand Gesture Detection
-- 🤖 AI-Based Gesture Recognition
-- 🔊 Voice Output
+- ✋ Real-Time Hand Gesture Recognition
+- 🤖 AI-Based Gesture Classification
 - 📷 Live Camera Feed
 - 📊 Stable Prediction using Majority Voting
-- 🎨 Professional User Interface
-- ⚡ Fast and Accurate Detection
+- 🎨 Professional Fullscreen User Interface
+- 🟢 LIVE Status Indicator
+- 🕒 Real-Time Date & Time Display
+- 📦 Hand Bounding Box Detection
+- ⚡ Fast and Accurate Recognition
 
 ---
 
@@ -45,7 +47,7 @@ The project is developed using Python, OpenCV, MediaPipe and Scikit-Learn.
 
 # 📂 Project Structure
 
-```
+```text
 SignSpeakAI
 │
 ├── assets
@@ -61,7 +63,6 @@ SignSpeakAI
 │   ├── collect_data.py
 │   ├── clean_dataset.py
 │   ├── train_model.py
-│   ├── speech.py
 │   └── camera.py
 │
 └── README.md
@@ -74,7 +75,7 @@ SignSpeakAI
 ### Install Required Libraries
 
 ```bash
-pip install opencv-python mediapipe numpy pandas scikit-learn joblib pyttsx3
+pip install opencv-python mediapipe numpy pandas scikit-learn joblib
 ```
 
 ### Run the Project
@@ -88,20 +89,22 @@ py -3.11 predictor.py
 
 # 📸 Output
 
-- Detects Hand Gestures
-- Displays Gesture Name
-- Speaks Detected Gesture
+- Detects Hand Gestures in Real Time
+- Displays the Recognized Gesture Name
 - Shows Live Camera Feed
+- Displays Live Date & Time
+- Highlights the Detected Hand with a Bounding Box
 
 ---
 
 # 🚀 Future Scope
 
-- More Sign Language Gestures
+- Support for More Sign Language Gestures
 - Sentence Formation
+- Emergency Communication Support
 - Mobile Application
-- Multi-language Voice Output
 - Deep Learning Integration
+- Multi-Language Gesture Recognition
 
 ---
 
