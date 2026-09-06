@@ -1,0 +1,10 @@
+{
+  "feature_count": 63,
+  "classes": [
+    "one",
+    "three",
+    "two"
+  ],
+  "test_accuracy": 100.0,
+  "normalization": "wrist-relative translation + scale-normalized by max landmark distance from wrist"
+}
