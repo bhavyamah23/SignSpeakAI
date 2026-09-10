@@ -82,57 +82,38 @@ def main():
             if not success:
                 print("ERROR: Unable to read camera frame.")
                 break
-
             frame, landmarks, bbox = tracker.find_hands(frame)
-
             cv2.putText(frame, f"Gesture : {gesture_name}", (20, 40),
                         cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-
             cv2.putText(frame, f"Samples : {sample_count}/{target_samples}", (20, 80),
                         cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
-
             if collecting:
                 cv2.putText(frame, "RECORDING...", (20, 120),
                             cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
             else:
                 cv2.putText(frame, "Press S to Start", (20, 120),
                             cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
-
             cv2.imshow("Collect Gesture Data", frame)
-
             key = cv2.waitKey(1) & 0xFF
-
             if key == ord("s"):
                 collecting = True
                 print("Recording Started...")
-
             if key == ord("q"):
                 break
-
-            # Save every 0.2 second
             if collecting and len(landmarks) == 21:
-
                 if time.time() - last_save > 0.2:
-
                     row = [gesture_name]
-
                     for point in landmarks:
                         row.extend([round(point[0], 6), round(point[1], 6), round(point[2], 6)])
-
                     writer.writerow(row)
                     sample_count += 1
                     print(f"Saved Sample : {sample_count}")
                     last_save = time.time()
-
                     if sample_count >= target_samples:
                         print(f"\n{target_samples} Samples Saved Successfully!")
                         break
-
     cap.release()
     cv2.destroyAllWindows()
-
     print("Dataset Saved Successfully!")
-
-
 if __name__ == "__main__":
     main()
