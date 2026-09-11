@@ -24,13 +24,6 @@ except ImportError:
 # ============================================================
 
 def configure_tesseract():
-    """
-    Tries to find Tesseract automatically instead of relying on a
-    hardcoded Windows path that breaks on every other machine.
-    Returns True if Write Mode's OCR will work, False otherwise
-    (Write Mode still runs, but word recognition is disabled).
-    """
-
     # Already on PATH (Linux/Mac install, or Windows with PATH set)
     found = shutil.which("tesseract")
     if found:
@@ -141,13 +134,6 @@ def add_word_to_sentence():
 
 
 def recognize_word():
-
-    # Detect any pixel that differs meaningfully from pure white,
-    # regardless of pen color. The old approach converted to grayscale
-    # first and thresholded at 200 - but yellow's grayscale value
-    # (~226) is so close to white (255) that it got wiped out along
-    # with the background, making yellow writing invisible to OCR.
-    # Comparing directly in color space fixes this for every pen color.
     white = np.full_like(canvas, 255)
     diff = cv2.absdiff(canvas, white)
     non_white_mask = (np.any(diff > 30, axis=2)).astype(np.uint8) * 255

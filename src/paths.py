@@ -1,13 +1,3 @@
-"""
-Central place for project paths.
-
-Every script in src/ imports from here instead of using hardcoded
-relative paths like "../dataset/...". This means the project works
-correctly whether you run it as:
-    python app.py                (from project root)
-    cd src && python predictor.py (from inside src/)
-"""
-
 import os
 
 # Project root = parent folder of src/
